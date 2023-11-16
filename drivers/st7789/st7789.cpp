@@ -308,6 +308,12 @@ namespace pimoroni {
     }
   }
 
+  void ST7789::update(const char *frame_buffer) {
+    uint8_t cmd = reg::RAMWR;
+
+    command(cmd, width * height * sizeof(uint16_t), frame_buffer);
+  }
+
   void ST7789::set_backlight(uint8_t brightness) {
     // gamma correct the provided 0-255 brightness value onto a
     // 0-65535 range for the pwm counter

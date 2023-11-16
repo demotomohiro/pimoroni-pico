@@ -132,6 +132,7 @@ namespace pimoroni {
 
     void cleanup() override;
     void update(PicoGraphics *graphics) override;
+    void update(const char *frame_buffer);
     void set_backlight(uint8_t brightness) override;
 
   private:
