@@ -308,10 +308,10 @@ namespace pimoroni {
     }
   }
 
-  void ST7789::update(const char *frame_buffer) {
+  void ST7789::update(const uint16_t *frame_buffer) {
     uint8_t cmd = reg::RAMWR;
 
-    command(cmd, width * height * sizeof(uint16_t), frame_buffer);
+    command(cmd, width * height * sizeof(uint16_t), reinterpret_cast<const char*>(frame_buffer));
   }
 
   void ST7789::set_backlight(uint8_t brightness) {
